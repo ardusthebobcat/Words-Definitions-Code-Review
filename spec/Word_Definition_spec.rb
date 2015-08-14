@@ -1,6 +1,7 @@
 require('rspec')
 require('Word')
 require('Definition')
+require('pry')
 
 describe ('Word') do
   before() do
@@ -19,7 +20,18 @@ describe ('Word') do
     it('creates a word object, saves, then outputs definition') do
       test_word = Word.new({:word => "serval", :definition => "a slender African wildcat with long legs, large ears, and a black-spotted orange-brown coat."})
       test_word.save_word()
-      expect(test_word.definition()).to(eq("a slender African wildcat with long legs, large ears, and a black-spotted orange-brown coat."))
+      expect(test_word.definition()).to(eq(["a slender African wildcat with long legs, large ears, and a black-spotted orange-brown coat."]))
+    end
+
+    #This is going to be a complicated spec in terms of lines, but hopefully not in logic
+    it('creates a word object, saves, adds a second definition, outputs both definitions') do
+      #The word is "Recreational"
+      test_word = Word.new({:word => "recreational", :definition => "done for enjoyment"})
+      new_definition = "of or relating to recreational drugs or their use"
+      test_word.save_word()
+      test_word.add_definition(new_definition)
+      test_word.save_word()
+      expect(test_word.definition()).to(eq(["done for enjoyment", new_definition]))
     end
   end
 
@@ -36,7 +48,7 @@ describe("Definition") do
 
   describe(":definition") do
     it("returns definitions") do
-      #word is experimentalism
+      #the word is experimentalism
       new_definition_1 = "fondness for experimenting or innovating"
       new_definition_2 = "doctrine or practice of relying on experimentation; empiricism"
       test_definition = Definition.new(new_definition_1)

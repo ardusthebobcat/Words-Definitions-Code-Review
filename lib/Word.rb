@@ -1,3 +1,6 @@
+##Today, I had my first "I dont know why my code doesnt work >> Now I dont know why my code works" moment.
+##Force-initialized @definition as array.new, << the definition into it, now the push method works for adding definition.
+##Spent like 30 minutes trying to fix this bug, fix it accidentally. So many wat's.
 class Word
   @@Words = []
 
@@ -6,8 +9,8 @@ class Word
   #initialize method
   define_method(:initialize) do |attributes|
     @word = attributes.fetch(:word)
-    @definition = []
-    @definition = attributes.fetch(:definition)
+    @definition = Array.new
+    @definition << attributes.fetch(:definition)
     @id = @@Words.length().+(1)
   end
 

@@ -43,6 +43,5 @@ post('/add_definition') do
   id -= 1
   @Words = Word.all()
   @Words[id].definition().push(new_definition)
-binding.pry
   erb(:index)
 end

@@ -15,9 +15,9 @@ class Word
     @@Words
   end
 
-  # define_singleton_method(:return_specific) do |id|
-  #   @@Words[id]
-  # end
+  define_singleton_method(:return_specific) do |id|
+    @@Words[id]
+  end
 
   #regular methods
   define_method(:save_word) do

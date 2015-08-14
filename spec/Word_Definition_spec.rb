@@ -14,7 +14,7 @@ describe ('Word') do
     it('creates a word and returns just its id number') do
       test_word = Word.new({:word => "bobcat", :definition => "a small North American cat species with a barred and spotted coat and a short tail."})
       test_word.save_word()
-      expect(Word.return_specific(1)).to(eq([test_word]))
+      expect(Word.return_specific(1)).to(eq(test_word))
     end
   end
 end

@@ -4,7 +4,7 @@
 class Word
   @@Words = []
 
-  attr_reader(:word, :definition)
+  attr_reader(:word, :definition, :id)
 
   #initialize method
   define_method(:initialize) do |attributes|
@@ -19,13 +19,28 @@ class Word
     @@Words
   end
 
+  define_method(:save_word) do
+    id = self.id
+    @@Words[id] = self
+  end
+
   define_singleton_method(:return_specific) do |id|
-    @@Words[id]
+    @@Words[id.to_i]
   end
 
   define_singleton_method(:clear) do
     @@Words = []
   end
+
+  # define_singleton_method(:find) do |id|
+  #   found_word = nil
+  #   @Words.each() do |word|
+  #     if word.id().eql?(id)
+  #       found_word = word
+  #     end
+  #   end
+  #   found_word
+  # end
 
   #regular methods
   define_method(:save_word) do

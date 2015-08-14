@@ -1,0 +1,29 @@
+<DOCTYPE html>
+  <html>
+    <head>
+      <title>Word-Definition Code Review</title>
+      <style>
+        li {
+          margin: 5px;
+        }
+      </style>
+    </head>
+    <body>
+      <h1> Word-Definition Code Review! </h1>
+
+      <!-- Navigation -->
+      <a href='/add_word'> Add a Word </a>
+
+      </br>
+
+      <div class="word_output">
+        <ul>
+          <% if @Words != nil %>
+            <% @Words.each do |word| %>
+            <li><a href="/word/<%=word.id()%>"><%= word.word() %> - ID: <%= word.id() %></a></li>
+            <% end %>
+          <% end %>
+        </ul>
+      <div>
+    </body>
+  </html>

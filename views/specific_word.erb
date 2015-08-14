@@ -1,0 +1,15 @@
+<h1> Here are all the details about the word: <%=@word %> </h1>
+<h2> This is the current id: <%= @id %> </h2>
+<h2> These are the current definition(s): <%= @definition %> </h2>
+
+<form action="/add_definition" method ="post">
+  <label for="new_definition"> Enter a definition to add! </label>
+  <input name="new_definition" type = "text">
+
+  <!--- In a way, this is a shameful way to do it, but I couldnt think of how
+  else to easily obtain the value at the moment. :( -->
+  <label for="current_id"> Please enter current Id (from top of page) </label>
+  <input name="current_id" type = "number">
+
+  <button type="submit" class="btn-success"> Save Definition</button>
+</form>
